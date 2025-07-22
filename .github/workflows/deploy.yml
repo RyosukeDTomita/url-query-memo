@@ -2,17 +2,10 @@ name: Deploy Next.js site to Pages
 
 on:
   push:
-    branches: ["main"]
+    #branches: ["main"]
     paths:
-      - 'src/**'
-      - 'public/**'
-      - 'package.json'
-      - 'package-lock.json'
-      - 'next.config.ts'
-      - 'tailwind.config.ts'
-      - 'tsconfig.json'
-      - 'postcss.config.mjs'
-      - 'eslint.config.mjs'
+      - 'url-memo-app/**'
+      - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
 permissions:
@@ -36,19 +29,22 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+          cache-dependency-path: 'url-memo-app/package-lock.json'
 
       - name: Install dependencies
         run: npm ci
+        working-directory: url-memo-app
 
       - name: Build Next.js site
         run: npm run build
+        working-directory: url-memo-app
         env:
           NODE_ENV: production
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./url-memo-app/out
 
   deploy:
     environment:
