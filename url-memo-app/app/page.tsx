@@ -4,13 +4,14 @@ import React, { useState, useEffect, Suspense } from 'react';
 import { Editor } from '@/components/Editor';
 import { SaveButton } from '@/components/SaveButton';
 import { ShareButton } from '@/components/ShareButton';
+import { ResetButton } from '@/components/ResetButton';
 import { StatusMessage } from '@/components/StatusMessage';
 import { useUrlState } from '@/hooks/useUrlState';
 import { useBookmark } from '@/hooks/useBookmark';
 import { encodeTextToUrl } from '@/utils/urlEncoder';
 import { decodeTextFromUrl } from '@/utils/urlDecoder';
 
-const URL_LENGTH_LIMIT = 2048;
+const URL_LENGTH_LIMIT = 8192; // 8KB - supported by most modern browsers and servers
 
 interface StatusMessageState {
   message: string;
@@ -68,6 +69,15 @@ function MemoApp() {
     showStatusMessage('URLがクリップボードにコピーされました。', 'success');
   };
 
+  const handleReset = () => {
+    setMemoText('');
+    // Clear URL parameters
+    const url = new URL(window.location.href);
+    url.searchParams.delete('memo');
+    window.history.replaceState({}, '', url.toString());
+    showStatusMessage('メモがリセットされました。', 'info');
+  };
+
   const getCurrentUrl = () => {
     if (typeof window !== 'undefined') {
       return window.location.href;
@@ -103,7 +113,7 @@ function MemoApp() {
           <Editor
             initialText={memoText}
             onChange={handleMemoChange}
-            maxLength={1500} // Conservative limit to ensure URL stays under limit after encoding
+            maxLength={5000} // Increased limit with compression
           />
         </div>
 
@@ -116,6 +126,9 @@ function MemoApp() {
           <ShareButton
             currentUrl={getCurrentUrl()}
             onShare={handleShare}
+          />
+          <ResetButton
+            onReset={handleReset}
           />
         </div>
 

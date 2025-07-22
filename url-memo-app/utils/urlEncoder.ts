@@ -1,6 +1,6 @@
 import LZString from 'lz-string';
 
-const MAX_URL_LENGTH = 2048;
+const MAX_URL_LENGTH = 8192; // 8KB - supported by most modern browsers and servers
 
 export function encodeTextToUrl(text: string): string {
   if (text === '') {
