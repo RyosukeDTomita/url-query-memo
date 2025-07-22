@@ -14,9 +14,23 @@
 
 ## ABOUT
 
-URLのクエリパラメータにメモの内容を保存するブラウザベースのメモアプリケーションです。サーバー不要で動作し、URLを保存・共有するだけで複数デバイス間でのメモ同期や他のユーザーとの共有が可能です。
+A minimal memo app that saves your text in the URL query string.
+
+- It works without a backend server
+- simply saving or sharing the URL
+- No need to register account.
+
+You can synchronize memos across multiple devices or share them with other users.
 
 https://ryosukedtomita.github.io/url-query-memo
+
+URLのクエリ文字列にテキストを保存する、最小構成のメモアプリです。
+
+- バックエンドサーバーは不要
+- URLを保存・共有するだけで使えます
+- アカウント登録も不要
+
+メモは複数のデバイス間で同期したり、他のユーザーと共有したりできます。
 
 ---
 
@@ -62,35 +76,21 @@ go to http://localhost:3000/MyActivity/
 
 ## HOW TO USE
 
-1. **メモの作成・編集**
-   - テキストエリアにメモを入力
-   - 変更は自動的にURLに反映される
-
-2. **保存**
-   - 「ブックマークに保存」ボタンをクリック
-   - 表示される指示に従ってブラウザのブックマークを更新
-
-3. **共有**
-   - 「共有」ボタンでURLをクリップボードにコピー
-   - URLを他の人に送信してメモを共有
+1. Createing and Editing Memos
+    - Enter your memo in the text area.
+    - Changes are automatically reflected in the URL.
+2. Saving
+    - Click the "Save as Bookmark" button
+    - Follow the instructions to update your browser’s bookmark
+3. Sharing
+    - Click the "Share" button to copy the URL to your clipboard
+    - Send the URL to others to share your memo
 
 ---
 
-## FEATURES
+## Security and Privacy
 
-- 📝 **シンプルなメモ作成**: テキストエリアにメモを入力するだけ
-- 🔗 **URLベースの保存**: メモの内容が自動的にURLに保存される
-- 🔖 **ブックマーク連携**: ブラウザのブックマーク機能で複数デバイス間同期
-- 🌐 **簡単共有**: URLを共有するだけでメモを他の人と共有
-- 📱 **レスポンシブデザイン**: モバイルデバイスにも対応
-- 🔒 **プライバシー配慮**: データの暗号化と注意喚起
-- ⚡ **軽量・高速**: Next.js + TypeScriptで高いパフォーマンス
-- 🧪 **テスト駆動開発**: 79個のテストで品質を保証
-
-## セキュリティとプライバシー
-
-⚠️ **重要**: メモの内容はURLに含まれるため、以下の点にご注意ください：
-
-- 機密情報（パスワード、個人情報等）は入力しないでください
-- URLを共有する際は、内容が第三者に見られる可能性があります
-- ブラウザの履歴にメモの内容が残ります
+⚠️ Important: Memo content is embedded in the URL. Please keep the following in mind:
+- Do not enter sensitive information such as passwords or personal data
+- Anyone with the URL can view the content, so be cautious when sharing
+- Your memo may remain in your browser’s history
