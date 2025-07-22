@@ -2,6 +2,10 @@
   "name": "url-memo-app",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RyosukeDTomita/url-query-memo"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
