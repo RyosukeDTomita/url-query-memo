@@ -1,3 +1,5 @@
+import LZString from 'lz-string';
+
 const MAX_URL_LENGTH = 2048;
 
 export function encodeTextToUrl(text: string): string {
@@ -5,11 +7,11 @@ export function encodeTextToUrl(text: string): string {
     return '';
   }
 
-  const base64Encoded = Buffer.from(text, 'utf-8').toString('base64');
+  const compressed = LZString.compressToEncodedURIComponent(text);
   
-  if (base64Encoded.length > MAX_URL_LENGTH) {
+  if (compressed.length > MAX_URL_LENGTH) {
     throw new Error('Text is too long to be safely encoded in URL');
   }
 
-  return base64Encoded;
+  return compressed;
 }

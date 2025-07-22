@@ -16,7 +16,7 @@
 
 URLのクエリパラメータにメモの内容を保存するブラウザベースのメモアプリケーションです。サーバー不要で動作し、URLを保存・共有するだけで複数デバイス間でのメモ同期や他のユーザーとの共有が可能です。
 
-https://sigma.github.io/url-query-memo/
+https://ryosukedtomita.github.io/url-query-memo
 
 ---
 
