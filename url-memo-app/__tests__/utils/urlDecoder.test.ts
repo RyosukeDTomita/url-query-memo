@@ -44,10 +44,9 @@ describe('decodeTextFromUrl', () => {
   });
 
   it('should handle invalid compressed data gracefully', () => {
-    // LZ-string returns empty string for invalid data, not null
+    // LZ-string returns null for invalid data, which should result in an error
     const invalidEncoded = 'This is not valid compressed data!@#$%';
-    const decoded = decodeTextFromUrl(invalidEncoded);
-    expect(decoded).toBe('');
+    expect(() => decodeTextFromUrl(invalidEncoded)).toThrowError('Invalid compressed data');
   });
 
   it('should handle very long text', () => {
