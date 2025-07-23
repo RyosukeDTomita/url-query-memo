@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, Suspense } from 'react';
-import { Editor } from '@/components/Editor';
+import { CodeMirrorVimEditor } from '@/components/CodeMirrorVimEditor';
 import { SaveButton } from '@/components/SaveButton';
 import { ShareButton } from '@/components/ShareButton';
 import { ResetButton } from '@/components/ResetButton';
@@ -121,7 +121,7 @@ function MemoApp() {
 
         {/* Main Content */}
         <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-          <Editor
+          <CodeMirrorVimEditor
             initialText={memoText}
             onChange={handleMemoChange}
             maxLength={5000} // Increased limit with compression
