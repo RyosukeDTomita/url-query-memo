@@ -6,6 +6,8 @@ import { SaveButton } from '@/components/SaveButton';
 import { ShareButton } from '@/components/ShareButton';
 import { ResetButton } from '@/components/ResetButton';
 import { StatusMessage } from '@/components/StatusMessage';
+import { SplitLayout } from '@/components/SplitLayout';
+import { MarkdownPreview } from '@/components/MarkdownPreview';
 import { useUrlState } from '@/hooks/useUrlState';
 import { useBookmark } from '@/hooks/useBookmark';
 import { encodeTextToUrl } from '@/utils/urlEncoder';
@@ -87,7 +89,7 @@ function MemoApp() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
         <header className="text-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">
@@ -120,12 +122,15 @@ function MemoApp() {
         )}
 
         {/* Main Content */}
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-          <CodeMirrorVimEditor
-            initialText={memoText}
-            onChange={handleMemoChange}
-            maxLength={5000} // Increased limit with compression
-          />
+        <div className="bg-white rounded-lg shadow-lg p-2 mb-6 h-[70vh]">
+          <SplitLayout>
+            <CodeMirrorVimEditor
+              initialText={memoText}
+              onChange={handleMemoChange}
+              maxLength={5000} // Increased limit with compression
+            />
+            <MarkdownPreview content={memoText} />
+          </SplitLayout>
         </div>
 
         {/* Action Buttons */}
