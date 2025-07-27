@@ -49,7 +49,7 @@ URLのクエリ文字列にテキストを保存する、最小構成のメモ�
 ### Local environment
 
 ```shell
-cd url-memo-app
+cd url-query-memo/url-memo-app
 npm install
 ```
 
@@ -57,7 +57,7 @@ npm install
 npm run dev
 ```
 
-go to http://localhost:3000/MyActivity/
+go to http://localhost:3000/url-query-memo
 
 
 ### GitHub settings
