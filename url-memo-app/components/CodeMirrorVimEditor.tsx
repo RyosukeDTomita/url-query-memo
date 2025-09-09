@@ -16,7 +16,7 @@ interface CodeMirrorVimEditorProps {
 export function CodeMirrorVimEditor({ initialText, onChange, maxLength }: CodeMirrorVimEditorProps) {
   const editorRef = useRef<HTMLDivElement>(null);
   const viewRef = useRef<EditorView | null>(null);
-  const [isVimEnabled, setIsVimEnabled] = useState(true);
+  const [isVimEnabled, setIsVimEnabled] = useState(false);
   const [vimMode, setVimMode] = useState<string>('normal');
   const [charCount, setCharCount] = useState(initialText.length);
 
