@@ -64,7 +64,7 @@ function MemoApp() {
   const handleSave = () => {
     const currentUrl = window.location.href;
     updateBookmark(currentUrl);
-    showStatusMessage('ブックマークの更新方法が表示されました。', 'success');
+    showStatusMessage('メモの保存方法が表示されました。', 'success');
   };
 
   const handleShare = () => {
@@ -135,13 +135,13 @@ function MemoApp() {
 
         {/* Action Buttons */}
         <div className="flex gap-4 justify-center mb-8">
-          <SaveButton
-            currentUrl={getCurrentUrl()}
-            onSave={handleSave}
-          />
           <ShareButton
             currentUrl={getCurrentUrl()}
             onShare={handleShare}
+          />
+          <SaveButton
+            currentUrl={getCurrentUrl()}
+            onSave={handleSave}
           />
           <ResetButton
             onReset={handleReset}
@@ -154,11 +154,9 @@ function MemoApp() {
             使い方
           </h2>
           <ul className="text-black space-y-1 text-sm">
-            <li>• テキストエリアにメモを入力すると、自動的にURLに保存されます</li>
-            <li>• 「ブックマークに保存」ボタンでブックマークを更新できます</li>
-            <li>• 「共有」ボタンでURLをクリップボードにコピーできます</li>
-            <li>• このURLを保存したり共有すれば、どこからでもメモにアクセスできます</li>
-            <li>• Vimモードは青色のボタンからオフにできます</li>
+            <li>• 本アプリはフロントエンドのみで開発されており、データベースやストレージは使用せずに、メモの内容を永続化できるプライバシーとSDGSに配慮した新しいメモアプリケーションです。</li>
+            <li>• データベースやストレージの代わりにURLのクエリパラメータを使ってメモの内容を永続化します。そのため、URLをブラウザのブックマークやメモアプリなどに保存/シェアすることで、別端末や第三者に内容を共有することが可能です</li>
+            <li>• Vimモード対応</li>
           </ul>
         </div>
 
@@ -168,8 +166,9 @@ function MemoApp() {
             プライバシーについて
           </h3>
           <p className="text-black text-xs">
-            メモの内容はURLに含まれるため、機密情報は入力しないでください。
-            URLを共有する際は、内容が第三者に見られる可能性があることをご注意ください。
+            メモの内容はすべてURLに含まれる関係上、URLを知っている人全員が内容を閲覧できます。URLを共有する範囲にはご注意ください。
+            本アプリの<a href="https://ryosukedtomita.github.io/url-query-memo/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">オリジナル</a>はGitHub Pagesでホストしているため、アプリの作者がアクセスログ等からメモの内容を閲覧することができません。
+            しかし、本アプリはOSSプロジェクトのため、第三者が本アプリをホストすることが可能です。その際には、サーバの管理者がアクセスログからメモの内容を閲覧できる可能性があります。
           </p>
         </div>
       </div>

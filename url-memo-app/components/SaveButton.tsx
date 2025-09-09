@@ -23,7 +23,7 @@ export function SaveButton({ currentUrl, onSave, disabled = false }: SaveButtonP
   return (
     <button
       type="button"
-      aria-label="ブックマークに保存"
+      aria-label="メモを保存"
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       disabled={disabled}
@@ -36,7 +36,7 @@ export function SaveButton({ currentUrl, onSave, disabled = false }: SaveButtonP
       `}
     >
       <span>💾</span>
-      <span>ブックマークに保存</span>
+      <span>メモを保存</span>
     </button>
   );
 }
